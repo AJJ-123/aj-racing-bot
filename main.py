@@ -390,6 +390,9 @@ def scan_picks(horses):
             picks.append({'horse': h['horse'], 'track': track, 'time': h['time'],
                           'system': 'False Fav', 'odds': odds,
                           'liability': round((odds - 1) * STAKE, 2)})
+            log.info(f"  FF PASS: {h['horse']} @{odds:.1f} score={calc_score(h)} form={calc_form(h)} lay={calc_lay(h)} flag={h['flag']} "
+                     f"lto_ipl={h.get('lto_ipl',0):.0f} lto_pos={h.get('lto_pos',0):.0f} or_diff={h.get('or_diff',0):.0f} "
+                     f"days_lto={h.get('days_lto',0):.0f} avg_sp_l5={h.get('avg_sp_l5',0):.1f} wins_l5={h.get('wins_l5',0):.0f}")
             # Don't break - log ALL qualifying horses per race (same as app)
 
     log.info(f"False Favs: {ff_count}")
